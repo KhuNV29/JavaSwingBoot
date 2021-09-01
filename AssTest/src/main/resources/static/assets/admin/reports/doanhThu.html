@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Dashboard</div>
+	<table class="table table-condensed">
+        <thead class="bg-success" style="font-variant: small-caps;">
+            <tr>
+                <th>Year</th>
+                <th>Dashboard</th>
+                <th></th>
+            </tr>
+        </thead>
+       <tbody>
+            <tr ng-repeat="item in dashboard">
+               <td>{{item.year}}</td>
+               <td>{{item.dashboard}}</td>
+              </tr>            
+        </tbody>
+    </table>
+</div>

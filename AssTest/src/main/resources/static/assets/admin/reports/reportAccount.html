@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Report Account</div>
+	<table class="table table-condensed">
+        <thead class="bg-success" style="font-variant: small-caps;">
+            <tr>
+                <th>Username</th>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Purchase Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+       <tbody>
+            <tr ng-repeat="item in pager.account">
+               <td>{{item.username}}</td>
+               <td>{{item.fullname}}</td>
+               <td>{{item.email}}</td>
+           	   <td>{{item.countAccount}}</td> 
+            </tr>
+        </tbody>
+    </table>
+</div>

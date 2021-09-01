@@ -1,0 +1,18 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<ul class="nav nav-tabs" style="font-variant: small-caps;" >
+    <li ><a data-toggle="tab" data-target="#reportAccount" href="">Report Account</a></li>
+   <li><a data-toggle="tab" data-target="#reportProduct" href="">Report Product</a></li>
+    <li class="active"><a data-toggle="tab" data-target="#reportTurnover" href="">Report Dashboard</a></li>
+</ul>
+<div class="tab-content">
+    <div id="reportAccount" class="tab-pane fade">
+        <div ng-include="'/assets/admin/reports/reportAccount.html'"></div>
+    </div>
+  <div id="reportProduct" class="tab-pane fade">
+        <div ng-include="'/assets/admin/reports/reportProduct.html'"></div>
+    </div>
+    <div id="reportTurnover" class="tab-pane fade in active">
+        <div ng-include="'/assets/admin/reports/doanhThu.html'"></div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,9 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <div class="panel-primary">
+      <div class="glyphicon glyphicon-briefcase"><b>DANH MỤC</b></div>
+    </div>
+    <div class="list-group">
+      <a th:each="p:${cates}" th:href="@{|/product/list1/?cid=${p.id}|}" class="list-group-item">[[${p.name}]]</a>
+      
+    </div>
+  </div> 

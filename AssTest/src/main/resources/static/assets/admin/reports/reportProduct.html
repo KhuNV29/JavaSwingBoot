@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Report Product</div>
+	<table class="table table-condensed">
+        <thead class="bg-success" style="font-variant: small-caps;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Purchase Quantity</th>
+                <th></th>
+            </tr>
+        </thead>
+       <tbody>
+            <tr ng-repeat="item in pager.product">
+               <td>{{item.id}}</td>
+               <td>{{item.name}}</td>
+               <td>{{item.price}}</td>
+               <td>{{item.countProduct}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

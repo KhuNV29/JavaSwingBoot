@@ -1,0 +1,22 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<ul class="nav nav-tabs" style="font-variant: small-caps;" >
+	<li class="active"><a data-toggle="tab" data-target="#0" href="">Unresolved</a></li>
+    <li><a data-toggle="tab" data-target="#1" href="">Processing</a></li>
+    <li><a data-toggle="tab" data-target="#2" href="">Processed</a></li>
+    <li><a data-toggle="tab" data-target="#3" href="">Completed</a></li>
+</ul>
+<div class="tab-content">
+    <div id="0" class="tab-pane fade in active">
+        <div ng-include="'/assets/admin/order/0.html'"></div>
+    </div>
+    <div id="1" class="tab-pane fade">
+        <div ng-include="'/assets/admin/order/1.html'"></div>
+    </div>
+    <div id="2" class="tab-pane fade">
+        <div ng-include="'/assets/admin/order/2.html'"></div>
+    </div>
+    <div id="3" class="tab-pane fade">
+        <div ng-include="'/assets/admin/order/3.html'"></div>
+    </div>
+</div>
+</div>

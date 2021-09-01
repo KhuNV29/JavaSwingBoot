@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
+<title></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+	integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+	crossorigin="anonymous">
+<style>
+@font-face {
+	font-family: Open Sans;
+	src: url("Open_Sans/OpenSans-Light.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border-radius: 0 !important;
+	font-family: Open Sans;
+	font-size: 15px;
+}
+
+@font-face {
+	font-family: Open Sans;
+	src: url("Open_Sans/OpenSans-Light.ttf");
+}
+/*xử lý menu*/
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+	background-color: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+/*list product*/
+.list-product-title {
+	width: 100%;
+	text-transform: uppercase;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.list-product-subtitle {
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+/*product card*/
+.card-product {
+	width: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+	overflow: hidden;
+	position: relative;
+}
+
+.product-title {
+	margin-bottom: 0.25rem;
+}
+
+.card-text .product-price {
+	position: relative;
+}
+
+.new-price {
+	color: black;
+	right: 0.5rem;
+}
+
+.btn-add-to-cart {
+	background-color: #3a5c83 !important;
+	color: white !important;
+}
+
+.btn-add-to-cart:hover {
+	background-color: #f90 !important;
+}
+
+.btn-detail {
+	border: 1px solid #3a5c83 !important;
+}
+
+.btn-detail:hover {
+	color: white !important;
+	background-color: #3a5c83 !important;
+}
+
+.sale-sticky {
+	color: white;
+	background-color: #f90;
+	display: block;
+	text-align: center;
+	width: 120px;
+	position: absolute;
+	top: 11px;
+	right: -39px;
+	transform: rotate(45deg);
+}
+</style>
+</head>
+<body>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top col-lg-12">
+		<div class="container">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/product/list1}">Home</a></li>
+					<th:block th:if="${#request.remoteUser}">
+						<li><a th:href="@{/order/list}">Your Orders</a></li>
+						<li
+							th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+						<li><a th:href="@{/admin/home/index}">Administration</a></li>
+						</li>
+						<li><a th:href="@{/security/logoff}">Sign Out</a></li>
+					</th:block>
+					<th:block th:unless="${#request.remoteUser}">
+						<li><a th:href="@{/security/login/form}">Sign In</a></li>
+					</th:block>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div class="input-group" style="max-width: 500px;">
+						<input type="text" class="form-control" placeholder="Search"
+							name="keyword" id="keyword" th:value="${session.keywords}" />
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit" onclick="search()">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<ul th:if="${#request.remoteUser}"
+					class="nav navbar-nav navbar-right">
+					<li><a href="#">Welcome you [[${#request.remoteUser}]]</a></li>
+				</ul>
+				<li class="nav-item text-nowrap">
+			</div>
+		</div>
+	</nav>
+</body>
+</html>
